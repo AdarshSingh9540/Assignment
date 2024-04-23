@@ -4,17 +4,17 @@
 import './App.css'
 import Navbar from './components/Navbar'
 import Header from './components/Header'
-import Body from './components/Body'
+import Cards from './components/Cards'
 
 function App() {
 
 
   return (
-    <>
+    <div className='bg-black'>
     <Navbar/>
     <Header/>
-    
-    </>
+    <Cards/>
+    </div>
   )
 }
 

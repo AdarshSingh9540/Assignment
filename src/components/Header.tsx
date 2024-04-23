@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { data } from '../assets/data';
 const Header: React.FC = () => {
   const [opacity, setOpacity] = useState(0);
-  const [marginTop, setMarginTop] = useState(20); // Initial margin-top value
+  const [marginTop, setMarginTop] = useState(20); 
   const [activeImageIndex , setActiveImageIndex] = useState(0);
+  const [childImageIndex , setChildImageIndex] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -33,11 +34,35 @@ const Header: React.FC = () => {
   useEffect(() =>{
    const timer = setTimeout(()=>{
    handleNext();
-    },5000);
+    },7000);
     return () => {
         clearTimeout(timer);
     }
   },[activeImageIndex]);
+
+  const url = [
+    "https://framerusercontent.com/images/4htYZIoRPQCgkrdjrgS5h0XNo.png",
+    "https://framerusercontent.com/images/M0LrAGosZdMnNVzBgih2aTN00.png",
+    "https://framerusercontent.com/images/AhQI0E1oGQ6WsEPwnv721Oj6PGY.png"
+
+  ]
+
+  const handleUpdate = () =>{
+    setChildImageIndex((childImageIndex+1) % data.length);
+  }
+
+  useEffect(() => {
+    const timerup = setTimeout(() => {
+      handleUpdate();
+    }, 6000);
+    return () => {
+      clearTimeout(timerup);
+    };
+  }, [childImageIndex]);
+  
+
+
+
 
   return (
     <div className='bg-black h-auto flex flex-col items-center justify-center'>
@@ -56,7 +81,7 @@ const Header: React.FC = () => {
       </div>
 
       <div>
-        <div className='w-[1000px]  '>
+        <div className='w-[1000px]  relative '>
             {
                 data.map((url,index) =>(
                     <img src={url}
@@ -65,6 +90,14 @@ const Header: React.FC = () => {
                     alt="" />
                 ))
             }
+          {
+            url.map((e,i) =>(
+                <img 
+                key={e}
+                className={'w-[320px] h-[500px] absolute  bottom-0 -right-20 ' + (childImageIndex === i ? "block":"hidden")} 
+                src={e} alt="" />
+            ))
+          }
         </div>
       </div>
     </div>

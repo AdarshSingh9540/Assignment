@@ -57,7 +57,7 @@ const Footer = () => {
                 </div>
             </div>
           
-            <div className=" mt-6 border-t border-gray-400"></div>
+            <div className=" mt-40 border-t border-gray-200"></div>
             <div className='flex justify-between'> 
                <div className='flex mt-12  ml-24 w-56 h-32'>
                 <div className='w-6 h-full mr-6'><img src={FooterLog} alt=""  className='w-full h-auto' /></div>

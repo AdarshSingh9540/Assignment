@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { data } from '../assets/data';
+import { Infinitescrollbrand } from './Infinitescrollband';
+import svgexport5 from '../assets/svg-export/svgexport-5.svg';
+import Body from './Body';
+
 const Header: React.FC = () => {
   const [opacity, setOpacity] = useState(0);
   const [marginTop, setMarginTop] = useState(20); 
@@ -65,7 +69,7 @@ const Header: React.FC = () => {
 
 
   return (
-    <div className='bg-black h-auto flex flex-col items-center justify-center'>
+    <div className='bg-black h-auto flex flex-col items-center justify-center overflow-x-hidden'>
       <div className='text-white text-7xl text-center m-36'>
         <div style={{ opacity, marginTop }} className='text-[84px] t'>
           <div className='m-4'>The Fastest Email</div>
@@ -100,6 +104,13 @@ const Header: React.FC = () => {
           }
         </div>
       </div>
+
+      <div>
+        <Infinitescrollbrand/>
+
+      </div>
+
+      <Body/>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { data } from '../assets/data';
-import { Infinitescrollbrand } from './Infinitescrollband';
+import Infinitescrollbrand  from './Infinitescrollband';
 import svgexport5 from '../assets/svg-export/svgexport-5.svg';
 import Body from './Body';
 

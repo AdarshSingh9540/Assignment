@@ -1,7 +1,25 @@
+import React, { useState, useEffect } from 'react';
 import arrowicon from "../assets/svg-export/svgexport-12.svg";
 import Cards from "./Cards";
 
 const Body = () => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [colorChanged, setColorChanged] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleColorChange = () => {
+    setColorChanged(true);
+  };
+
   return (
     <div className="relative w-[1250px] object-cover text-center mx-auto">
       <div className='flex justify-center items-center w-full h-full'>
@@ -22,16 +40,16 @@ const Body = () => {
         </div>
         <div className="text-white ml-4">
           <div>
-            <h2 className="text-[48px] font-sans font-semibold">Fly through your email</h2>
-            <h2 className="text-[48px] font-sans font-semibold">twice as fast as before</h2>
+            <h2 className="text-[48px] font-sans font-semibold" style={{ color: !colorChanged ? 'white' : scrollPosition >= 300 ? 'blue' : 'white' }}>Fly through your email</h2>
+            <h2 className="text-[48px] font-sans font-semibold" style={{ color: !colorChanged ? 'white' : scrollPosition >= 300 ? 'blue' : 'white' }}>twice as fast as before</h2>
           </div>
           <div>
-            <h2 className="text-[48px] font-sans font-semibold">Be more responsive to</h2>
-            <h2 className="text-[48px] font-sans font-semibold">what matters most.</h2>
+            <h2 className="text-[48px] font-sans font-semibold" style={{ color: !colorChanged ? 'white' : scrollPosition >= 300 ? 'red' : 'white' }}>Be more responsive to</h2>
+            <h2 className="text-[48px] font-sans font-semibold" style={{ color: !colorChanged ? 'white' : scrollPosition >= 300 ? 'red' : 'white' }}>what matters most.</h2>
           </div>
           <div>
-            <h2 className="text-[48px] font-sans font-semibold">Eliminate email anxiety</h2>
-            <h2 className="text-[48px] font-sans font-semibold">once and for all</h2>
+            <h2 className="text-[48px] font-sans font-semibold" style={{ color: !colorChanged ? 'white' : scrollPosition >= 300 ? 'green' : 'white' }}>Eliminate email anxiety</h2>
+            <h2 className="text-[48px] font-sans font-semibold" style={{ color: !colorChanged ? 'white' : scrollPosition >= 300 ? 'green' : 'white' }}>once and for all</h2>
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import Cards from './components/Cards';
 import { StickyScroll } from './components/ui/sticky-scroll-reveal';
 import GetStarted from './components/GetStarted';
 import Footer from './components/Footer';
+import Testimonial from './components/Testimonial';
 
 function App() {
   // Define your content array here with title, description, and image URL
@@ -46,6 +47,7 @@ function App() {
       <Cards />
     
       <StickyScroll content={content} />
+      <Testimonial/>
      <GetStarted/>
      <Footer/>
     </div>

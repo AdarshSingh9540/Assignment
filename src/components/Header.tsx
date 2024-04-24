@@ -69,7 +69,7 @@ const Header: React.FC = () => {
 
 
   return (
-    <div className='bg-black h-auto flex flex-col items-center justify-center overflow-x-hidden'>
+    <div className='bg-gradient-to-r from-[rgb(28,20,41)] via-transparent to-[rgb(20,42,54)] h-auto flex flex-col items-center justify-center overflow-x-hidden'>
       <div className='text-white text-7xl text-center m-36'>
         <div style={{ opacity, marginTop }} className='text-[84px] t'>
           <div className='m-4'>The Fastest Email</div>
